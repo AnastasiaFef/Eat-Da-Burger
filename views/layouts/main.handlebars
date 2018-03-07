@@ -4,71 +4,14 @@
 	<meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+        <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
 		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
-		<title>Eat Du Burger!</title>
+		<title>Eat Da Burger!</title>
 		<script src="https://code.jquery.com/jquery.js"></script>
-		{{!-- <script src="/assets/js/burger.js"></script> --}}
+		<script src="/assets/js/burger_fe.js"></script>
 	</head>
 	<body>
         <h1 class="center header">Eat Da Burger</h1>
 		{{{ body }}}
 	</body>
-
-<script>
-    (function(){
-        $(".devour").on("click", function(event) {
-            var id = $(this).data("id");
-            var idObj = { id: id };
-
-            console.log(idObj)
-
-            $.ajax({
-                url: "api/burgers/" + id, 
-                type: "PUT"
-        }).then(
-        function() {
-            console.log("devoured");
-            // Reload the page to get the updated list
-            location.reload();
-        }
-        );
-    });
-
-    $(".create-form").on("submit", function(event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
-
-        var newBurger = {
-        burger_name: $("#burg").val().trim()
-        };
-
-        console.log(newBurger)
-
-        // Send the POST request.
-        $.ajax("/api/burgers", {
-        type: "POST",
-        data: newBurger
-        }).then(
-        function() {
-            console.log("created new burger");
-            // Reload the page to get the updated list
-            location.reload();
-        }
-        );
-
-
-
-         {{!-- $.post('api/burgers', {burger_name: burgerSubmitVal}).then(() => {
-            console.log("new burger added")
-            location.reload() --}}
-
-
-
-    });
-    });
-
-    
-</script>
-
 </html>

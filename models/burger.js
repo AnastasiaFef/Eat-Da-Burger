@@ -7,12 +7,16 @@ var burger = {
         })
     },
     create: function(val, cb){
+        console.log('val ', val)
         orm.insertOne('burgers', val, function(res){
             cb(res);
         })
     },
     update: function(id, cb){
-        orm.updateOne('burgers', id, function(res){
+        console.log('id ', id)
+        var idNum = id.id
+        console.log(idNum);
+        orm.updateOne('burgers', idNum, function(res){
             cb(res);
         })
     }
